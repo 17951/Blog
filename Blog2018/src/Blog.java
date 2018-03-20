@@ -1,7 +1,11 @@
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class Blog {
 	private List<Note> notes = new ArrayList();
@@ -45,8 +49,8 @@ public class Blog {
 		}
 		Comment result = allComments.get(0);
 		for (Comment comment : allComments) {
-			LocalDate d1 = comment.getDate();
-			LocalDate d2 = result.getDate();
+			LocalDateTime d1 = comment.getDate();
+			LocalDateTime d2 = result.getDate();
 			if (d1.isAfter(d2)) {
 				result = comment;
 			}
@@ -55,8 +59,17 @@ public class Blog {
 		return result;
 	}
 
-	public List<Comment> lastComments() {
-		return null;
+	public Collection<Comment> lastComments() {
+		SortedSet allComents = new TreeSet(Collections.reverseOrder());
+		for (Note note : notes) {
+			set.addAll(note.getComments());
+
+		}
+		Iterator<Comment> iter=new allComments.iterator();
+		
+		}
+//		return
+
 	}
 
 }
