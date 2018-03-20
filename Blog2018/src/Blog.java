@@ -60,15 +60,21 @@ public class Blog {
 	}
 
 	public Collection<Comment> lastComments() {
-		SortedSet allComents = new TreeSet(Collections.reverseOrder());
+		SortedSet allComments = new TreeSet(Collections.reverseOrder());
 		for (Note note : notes) {
-			set.addAll(note.getComments());
+			allComments.addAll(note.getComments());
 
 		}
-		Iterator<Comment> iter=new allComments.iterator();
-		
+		Collection<Comment> result=new ArrayList();
+		Iterator<Comment> iter = new allComments.iterator();
+		for (int i = 0; i < 5; i++) {
+			if (iter.hasNext()) {
+				Comment c = iter.next();
+				result.add(c);
+				
+			}
 		}
-//		return
+		// return
 
 	}
 
